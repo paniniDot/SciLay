@@ -1,0 +1,718 @@
+Received: 22 April 2022 |Revised: 22 December 2022 |Accepted: 29 December 2022
+DOI: 10.1111/bld.12519
+ORIGINAL ARTICLE
+Internet activities and social and community participation
+among young people with learning disabilities
+Kristin Alfredsson Ågren1|Helena Hemmingsson2|Anette Kjellberg1
+1Department of Health, Medicine and Caring
+Sciences, Linköping University, Linköping,
+Sweden
+2Department of Special Education, Stockholm
+University, Stockholm, Sweden
+Correspondence
+Kristin Alfredsson Ågren, Department of
+Health, Medicine and Caring Sciences,
+Linköping University, Linköping, Sweden.
+Email: kristin.alfredsson.agren@liu.se
+Funding information
+Internal funding Linköping UniveristyAbstract
+Background: A digital lag has been reported on access to the internet and
+performing internet activities for young people with learning disabilities in
+everyday life.Aim: The aim of this study is to explore environmental opportunities and challenges
+when performing internet activities and how internet use influences social and
+community participation for young people with learning disabilities from the
+perspectives of the target group.
+Methods: An inductive design was applied, with focused observations and follow ‐up
+interviews of 15 internet ‐using young persons with learning disabilities in their
+everyday settings. The data was analysed interpretatively using open coding.Findings: The environment offered both opportunities and challenges in terms of the
+design of digital devices and digital support. Support from peers was often preferred.
+All participants performed internet activities related to social participation although
+not all used social media. Searching for information was performed, however, finding
+the information or understanding it was challenging and led to restrictedparticipation in the community.
+Conclusion: More examples of internet use positively influencing social participation
+were found, contrary to community participation. It is indicated that concrete
+learning situations when using the internet for social participation were more
+adapted to the participants and promoted this type of participation, contrary to
+situations of internet use influencing community participation.
+KEYWORDS
+adaptative methods, digital divide, digital inclusion, intellectual disability, technology
+Accessible summary
+•Doing activities online is part of everyday life.
+•We explored opportunities and challenges in the environment when performing
+internet activities and how internet use influence participation for young people
+with learning disabilities.
+Br J Learn Disabil . 2023;51:125 –134. wileyonlinelibrary.com/journal/bld |125
+This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any me dium,
+provided the original work is properly cited.
+© 2023 The Authors. British Journal of Learning Disabilities published by John Wiley & Sons Ltd.
+•We observed and interviewed people in their everyday settings of school or
+activity service and home about their internet use.
+•Young people prefer digital support from peers rather than staff when using the
+internet.
+•People do internet activities to have contact with others, but it was a challenge to
+find and understand information online and to take part in activities in the
+community.
+1|INTRODUCTION
+Using the internet is integrated in performing everyday activities for
+citizens in contemporary society (Statista, 2022 ). Internet research
+from Europe on young people without disabilities using the internet
+implies a shift taking place from the mere use of the internet in
+everyday life to adolescents living their everyday life online, mediatedby the internet (Livingstone et al., 2018 ). However, the extent of
+making use of the internet and how it transfers into and mediates
+everyday life for young people with learning disabilities has not beenexamined according to a recent literature review by Glencross et al.(2021 ). Their review indicates that studies most often show use of
+the internet for social networking and entertainment and focus on
+the risks with internet use, rather than the benefits for people withlearning disabilities (Glencross et al., 2021 ). Research comparing
+internet use of adolescents with learning disabilities with a reference
+group of adolescents without, show a digital lag in having access todigital devices, using the internet and performing internet activities
+(Alfredsson Ågren et al., 2020a ). It was found that 70% –80% of
+young people with learning disabilities perform internet activities forentertainment purposes, while 50% use social media, compared withclose to all in a reference group, and 20% were searching online for
+information compared with 84% among young people without
+learning disabilities (Alfredsson Ågren et al., 2020a ). Further, this
+digital divide can be identified as inequalities in access to and use of
+the internet and reinforce inequalities in society (Scheerder et al.,
+2017 ). Therefore, research on digital divide has been called for
+focusing on different groups in society, for example, people with
+learning disabilities, that traditionally experience exclusion in many
+areas of everyday life and being participatory citizens.
+Nevertheless, the increased use of mobile technology among
+people with learning disabilities may provide opportunities to develop
+social relations and contribute to a sense of belonging in thecommunity (Danker et al., 2022 ; Darcy et al., 2016 ; Kim & Qian,
+2022). Social media use has recently been shown to contribute to
+access to societal information for example keeping up to date on
+world events among young adults with learning disabilities (Kim &Qian, 2022). A review article specifically on social media use among
+young people with learning disabilities (Caton & Chapman, 2016 )
+revealed positive experiences from using social media, as well aschallenges. Examples of positive experiences were using social media
+to keep friends, and for the development of social identity, whilechallenges with online codes and net etiquette was also experienced
+(Caton & Chapman, 2016 ). Similar challenges of understanding social
+online codes have been reported by parents of young people with
+learning disabilities, together with challenges with technical andcognitive abilities for online participation (Sorbring et al., 2017 ).
+Further challenges that have been identified for people with learning
+disabilities are a lack of access to digital devices and internetconnection in some settings, such as group homes (Alfredsson Ågren
+et al., 2020b ; Danker et al., 2022 ) or challenges with handling the
+rapidly changing digital environment (Alfredsson Ågren et al., 2020b ).
+To enable the digital participation of people with learning disabilities,Lussier ‐Desrochers et al. ( 2017 ) summarized five dimensions or
+requirements and address the above ‐found challenges. They are:
+access to devices and the internet; technical skills; sensorimotorskills; cognitive skills and an understanding of social online codes and
+conventions. Together these environmental and personal factors
+influence digital participation as challenges or opportunities (Lussier ‐
+Desrochers et al., 2017 ).
+Although, there needs to be an awareness of the challenges and
+the risks with internet use and how to provide support for risk ‐taking
+on the internet (Borgström, 2021 ; Danker et al., 2022 ) recent studies
+have signalled the internet to be a less vulnerable place for people
+with learning disabilities than earlier anticipated. People with learning
+disabilities are motivated to use the internet and have someawareness of the online risks themselves (Alfredsson Ågren et al.,
+2020a ; Chadwick, 2022 ). It has been highlighted that research on
+internet use and people with learning disabilities have been missing
+out on the possibilities that may come with using the internet, and
+there is a need of empirical research of internet usage and how online
+use is being translated into offline lives for the target group(Glencross et al., 2021 ). This has also been highlighted in research
+including parents who have identified online use as an opportunity
+for social participation and participation in society (Sorbring et al.,2017 ). This poses the question of how online use and reported digital
+lag influence the internet outcomes of social participation and
+community participation for young people with learning disabilities.
+Internet outcomes are described by Scheerder et al. ( 2017 )a s
+different beneficial outcomes from internet use that adds on to digital
+access, skills, and use and should be studied in upcoming research as
+a determinant of digital divides.
+This calls for knowledge of how internet use influences
+outcomes on aspects of participation for young people with learning126 |
+ÅGREN ET AL.
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+disabilities from their own perspectives, as they are entering the
+unavoidable online use in everyday life. Definitions of participationhave not yet reached a consensus among researchers, professionals,
+or people with disabilities, but participation has been deemed critical
+for health and well ‐being (Chang & Coster, 2014 ). In a conceptual
+model of participation by Chang and Coster ( 2014 ) aspects of
+everyday life are important in conceptualizing participation together
+with the need to categorize participation by either type or setting.The identified types of participation are three: productivity, social,and community, and the purpose of the activities within them define
+the type of participation rather than the settings in which they take
+place. In the current study, the focus is on types of social andcommunity participation including roles as family members and friend
+in social participation and being a citizen and consumer of leisure
+time in the community as proposed by Chang and Coster ( 2014 ). Full
+and effective participation in society on equal terms as others are
+outspoken rights in the Swedish Act (SFS, 1993 : 387) and the UN
+Convention on the Rights of Persons with Disabilities (UN, 2006 ). It
+involves being given the possibility to interact with others and
+perform activities as a participatory citizen, for example taking part in
+leisure activities in the community with others or taking part in thelabour market (Chang & Coster, 2014 ). Further, it entails keeping
+updated on societal online information, to participate in society
+today, as most information is digital (Statista, 2022 ). As participation
+cannot be extracted from settings (Chang & Coster, 2014 ) with their
+different demands, environmental opportunities and challenges are
+crucial to explore with internet ‐using young people with both mild
+and moderate learning disabilities who perform internet activities toexplore the internet outcomes on social participation and community
+participation in the digital society.
+2|AIM
+This study aims to explore environmental opportunities and
+challenges when performing internet activities and how internet
+use influences social and community participation for young people
+with learning disabilities from the perspectives of the target group.
+3|METHODS
+This study applied an inductive design, with focused observations and
+follow ‐up interviews of internet ‐using young people with learning
+disabilities in their everyday settings.
+3.1 |Participants
+Participants were recruited from six municipalities in Sweden, from
+special schools and work settings of daily activity services throughpurposeful sampling (Patton, 2015 ). Inclusion criteria were young
+people with mild or moderate learning disabilities, between 13 and 25years old, and identified by staff at the special school or activity
+service as being internet users. In total 11 special schools and 6activity services were approached but four special schools and two
+activity services declined to participate in the study due to a heavy
+workload and difficulties identifying young people who were internetusers or willing to participate.
+Participants are in total 15: 4 men and 11 women, between the
+ages of 13 and 24 years ( m= 18.5) with mild ( n= 6) and moderate
+(n= 9) learning disabilities. The severity of disability was verified by
+the type of school the participants were enrolled in or stated by
+health professional staff at the activity services. Two ‐thirds of
+participants were in special school ( n= 10) and one ‐third worked at
+activity services ( n= 5), and most participants lived in their parental
+home, and two lived in accommodated group homes.
+3.2 |Procedure and data collection
+Contact persons from seven special schools and four activity services
+identified participants based on the inclusion criteria and organized
+the first meeting between participant and researcher to establishrapport (Taylor et al., 2016 ). An initial pre ‐fieldwork visit was
+conducted with nine of the participants. For the remaining six
+participants the consent forms were sent to the first author from the
+contact person.
+The focus of the data collection was on the internet devices
+including apps and the internet activities the participants performed
+in their everyday life, and the settings they performed them in. Datawere collected through participant observations in two ‐three every-
+day settings per participant being at school or activity services and at
+home. A follow ‐up interview was done with each participant at the
+last observation. To get access to the target groups perspectivecognitive adaptations were made to enable the participant's view.
+Photographs were taken during the observations and used as picture ‐
+based support during the follow ‐up interviews (Folkestad &
+Folkestad, 2000 ). Further, the questions asked during observations
+and the follow ‐up interviews were formulated with easier wordings
+or in either ‐or format (Taylor et al., 2016 ). All data collection was
+performed by the first author.
+3.2.1 |Observations
+Participants were observed between 1 and 6 hours per participant, in
+total 71 hours over 32 occasions, which included the follow upinterview. The initial observations took place in the participants'
+school or activity service setting. The second observations were
+conducted either at the participants' home ( n= 8) or on a second
+occasion in free time at school or the activity service at a suitable
+time for participants and within 2 weeks following the first
+observation. During the observations, the participant was followedin his or her ongoing events in the setting, for example, during
+teacher ‐led lessons at school or when being with friends during breakÅGREN ET AL.
+ |127
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+or their family at home. The observations included asking questions in
+a conversational style as recommended by Taylor et al. ( 2016 ) about
+their internet use in the settings from questions such as: Can you
+show me more of what you do [on the Internet] here? Why do you do it?
+During observations, field notes of the participants performing
+internet activities in the different contexts were handwritten in a
+field notebook, alongside the observer's reflections (Taylor et al.,
+2016 ). The observation occasions were audio recorded and photo-
+graphs were taken of the digital devices showing the screens whenused by the participants, resulting in a total of 269 photographs,
+m= 18 per participant. The photographs were used as memory ‐aids
+and picture ‐based support during follow ‐up interviews and when
+transcribing the field notes. The first author made transcriptions of
+the audio recordings and fieldnotes, close in time to the actual
+observation.
+3.2.2 |Follow ‐up interviews
+During the follow ‐up interviews mainly three recurrent questions
+were asked about the observed performance of internet activities:How come you do it? Whom do you do it with? and, Why do you do it?
+The photos from the observations were printed or shown on the
+researcher's tablet to the participant as a cognitive adaptation during
+follow ‐up interviews (Folkestad & Folkestad, 2000 ). Further, partici-
+pants used their own digital devices to show and clarify their answers
+and performed internet activities. Probing questions were formulated
+with easier wordings or in either ‐or format (Taylor et al., 2016 ) and
+were used alongside the three recurrent questions, for example:
+What did you do here? [asked at the same time as looking at a photo],
+What do you have here? [on the starting screen) Why do you have thatthere? Is it because X or Y? The follow ‐up interviews were audio ‐
+recorded and transcribed as part of the transcribed observations.
+3.3 |Data analysis
+The transcribed observational field notes with conversations and the
+follow ‐up interviews were analysed interpretatively using open
+coding in line with Taylor et al. ( 2016 ) and inductive analysis as
+proposed by Patton ( 2015 ). Initially, all the transcriptions were read
+through to get an overall understanding of the material. Subsequently
+in the analysis process, the transcribed material was read and re ‐read,
+starting with one participant at a time in all his/her settings to identifythemes to answer the aim. Data from the specific cases ofparticipants were analysed inductively for patterns, and writings
+were done in the margins to keep track of interpretations of the
+material (Patton, 2015 ). General patterns occurred from the case ‐
+specific analysis, for example, using online communication tools to
+interact with others as a way of socially participating. These findings
+were preliminarily organized and labelled in the ongoing discoveryapproach (Taylor et al., 2016 ) and themes were identified within
+opportunities and challenges in the environment and social andcommunity participation. Thirdly, cases were compared in a cross ‐
+case analysis (Patton, 2015 ). This was done from the settings,
+analysing all cases from the school ‐setting, followed by the work
+setting, and finally, all cases at home and in free time, which
+generated further themes. They were marked with different coloursand put together with drafts from the transcriptions to get an
+overview. In total the analysis process generated eight themes. Two
+were concluded from the environmental opportunities and chal-lenges, being Access to and design of digital devices and Support, digital
+competence, and rules . Further, three themes of internet use and
+social participation were found: Maintain and establish social contacts;
+Belonging to social groups , and Restrictions in social participation and
+social codes , and finally three themes were found of internet use and
+community participation: Searching, finding and understanding infor-
+mation in society; Using internet to take part in leisure activities in thecommunity and Internet use and restrictions in community participation .
+The themes were validated using quotes from the transcriptions,
+where the first author is referred to as Observer in the result section.
+3.4 |Ethical consideration
+The Regional Ethics Board of Linköping, Sweden approved the study
+(141201; Dnr: 2014/370 ‐31). Ethical considerations on providing
+information to enable young people with learning disabilities to giveinformed consent to participate were specifically addressed, and
+information of the study was written in easy ‐read text supported
+with pictures (Folkestad & Folkestad, 2000 ). An initial pre ‐fieldwork
+visit was set up and conducted with nine of the participants in their
+school or work setting, as a possibility to meet before following them
+in their everyday settings. On this occasion, the field notebook wasshown, and we tried the Dictaphone out. Additional verbal informa-tion was provided to ensure informed consent on the first meeting
+with the participant. The observations were open to everyone in the
+settings and for the second occasion at home or in free time, theparents were contacted for some participants who suggested it when
+asked. All data collection was performed by the first author, who
+needed to be flexible and respect integrity for all in the settingsduring observations. To secure anonymity all names in the study are
+pseudonyms.
+4|FINDINGS
+4.1 |Environmental opportunities and challenges
+when performing internet activities
+4.1.1 |Access to and design of digital devices
+All participants had access to more than one digital device which
+provided an opportunity for performing internet activities. The digitaldevices most often used by participants were devices with touch
+screens with apps, mostly smartphones, and tablets. Few participants128 |
+ÅGREN ET AL.
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+had laptops with adaptations, but among those who had, the laptop
+was their most used digital device.
+A challenge for some participants was to sensorimotor handle
+the small ‐sized digital devices, such as smartphones that often have
+small screens. For example, Cecilia had impaired vision and had tohold her smartphone very close to her eyes to see what was on the
+screen. Another challenge in the environment for some was not being
+able to open and use apps they had downloaded. These were appsthat involved using a second app to finish off the activity, forexample, when e ‐shopping or apps for buying bus tickets. The
+challenges were remembering passwords or to proceed inside the
+app due to difficulties following instructions in several steps. Thisreveals a need to focus on the need to design digital devices and apps
+to obtain optimal digital conditions to perform internet activities for
+the target group.
+4.1.2 |Support, digital competence, and rules
+Persons providing digital support served as opportunities in the
+immediate social environment for performing internet activities.These persons included staff and peers at schools or activityservices and parents and siblings at home. Participants often
+preferred the support of someone of the same age as themselves
+and most often asked peers, siblings, or younger relatives forsupport. For example, Tina calls out to one of her peers at the
+activity service:
+You, you help me. You have latest iPhone! You know
+more. Not him [nodding towards a staff member and
+giggles]. Her peer replies: “Yeah, yeah …I think I do
+actually .
+This shows that preferably young people with digital competence
+were chosen by the participants for digital support and could be apeer with learning disabilities. Further, it was found that the
+participants experience the digital competence of their peers with
+learning disabilities as more useful than that of staff. The often ‐
+limited digital competence of persons in the social environment were
+a challenge for the participants, as it often were only one or two
+persons having the competence to support the performance ofinternet activities.
+Further, rules and regulations set up by others were a challenge
+and interfered with how internet activities were performed. Ruleswere, for example, regulating when to perform internet activities andto what extent. One rule many had, was that other activities had to
+be performed before internet activities, such as specific tasks during
+a lesson at school, eating at home, or walking the dog in free time.This was found in all settings, among both staff and parents and for
+all participants of all ages. This shows that performing internet
+activities was often seen by others as a rewarding extra activity,rather than integrated in most everyday activities. Although, it also
+shows that performing internet activities were highly valued by theparticipants themselves. Further, this indicates that performing
+internet activities was something that could be denied by others,revealing that attitudes of staff and parents on internet use can be a
+crucial challenge to the performance of internet activities, along with
+low digital competence.
+4.2 |Internet use and social participation
+4.2.1 |Maintain and establish social contacts
+All participants used the internet to communicate and interact with
+others which enabled social participation and maintaining social
+contacts. Digital communication tools that were picture ‐based, such
+as FaceTime or Skype, were recurrently used by all, such as Ceciliawho used Skype weekly to keep in contact with her parents and
+sister. Many participants, but not all, used social media, for example,
+Facebook, Instagram, Snap Chat, or KiK. The design of social media tobe used asynchronously was pointed out as a possibility when
+communicating with others. For example, Amy, whose father was
+travelling in the United States, showed their ongoing short textconversations on Messenger, and pointed out the advantages ofbeing able to have contact without having to phone or keep track of
+time zones.
+A few were chatting in online gaming communities or having
+gaming apps downloaded and used to communicate and interact with
+others. One example is Ella, who plays Yatzy on the smartphone app
+with her aunt as a way of keeping in contact. In the follow ‐up
+interview with her she was asked:
+Observer: “So who do you play [Yatzy] with? ”
+Ella: “Eh.…. My mother …. And then …___ ”Observer:
+“Aaa…. So you play with your mother and she plays on
+her smartphone? ”Ella: “Yes! Eh …. And Aunt …And aunt
+wants ……Wants to play …If I do not play, she texts my
+Mum …. and asks …Where is Ella? ”
+This shows that playing games using the internet influenced
+social participation, as a way to socialize and interact with someone
+known since before and to maintain a social connection. The digital
+communication tools, social media, or gaming apps were mostly usedto keep in touch with friends and family and maintain ongoing
+relationships.
+A few participants were establishing new contacts on social
+media and finding new friends. For example, Lisa was chatting withsomeone on KiK during the first observation occasion. She
+explained it was a boy she did not know, who had approached
+her on Instagram. Now they wrote privately to each other on Kik.This shows that social media is used as an arena to meet new
+people and establish social contacts, although the participants
+mostly used the internet to maintain contact with their existingsocial networks of family members and friends, and less for
+establishing new social contacts.ÅGREN ET AL.
+ |129
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+4.2.2 |Belonging to social groups
+The digital devices of the participants were influencing social
+participation as they were referred to as artefacts that could
+demonstrate special interests shared with others and belonging toa specific group of friends or a public interest group or having a
+romantic relationship with someone. This was most often done by
+choice of pictures appearing on the starting screens that signalledinterests and things one liked, for example, specific car brands,favourite football teams, or pictures of characters in online games
+one played. Many had pictures showing relationships with others for
+example private photos of themselves and their pets, familymembers, or oneself on a special event, such as a holiday trip. Only
+a few had a starting screen with a picture of a friend, and one had a
+photo of her boyfriend. Some had public photos of film stars and saidit was their boy ‐/girlfriend. Most participants were keen on showing
+and explaining a lot about their starting screens. Further, the apps
+downloaded and appearing on the screen were of importance. Mostwho had social media apps downloaded opened them and showed
+their posts. Many had shared posts with photos from special
+occasions in everyday life, for example, photos of themselves indresses from the high ‐school dance. Overall, this shows a sense of
+pride and belonging to an adolescent group of young people taking
+part in social activities for example at school and sharing these
+experiences, wanting others to know about them in the same way asmost young people do through devices and on social media today.
+This was further highlighted as downloading the same apps as others
+had on their starting screens was performed. Molly was observedhaving some dating apps on her smartphone like Tinder. When asked
+about them she said she could not show them and continued:
+Molly: “I don´t know much about them. For dating they
+are. I just have them here. ”Observer: “OK. Why did you
+download them? ”Molly: “My sister had them. I also
+wanted to have them. ”
+This is an example of having apps that appear on the starting
+screen, even though they may not be used. This indicates that havingthe apps was an expression of wanting to belong to a group of young
+people who have dating apps on their smartphones and facilitated a
+sense of social participation.
+4.2.3 |Restrictions in social participation and social
+codes
+Some participants had experiences of being excluded from online
+groups on social media by people they knew and met offline, face toface, such as teachers, staff, or peers. This was described as
+influencing social participation in a restrictive way as participants
+described feeling sad and insecure when meeting face to face. Forexample, Ella had sent friend requests to teachers at her school on
+Facebook, but they had declined. After this Ella was reluctant to meetthem at school. But Ella said her Mum had explained to her that they
+are working together at school, although not being friends. Thisindicates difficulties of understanding the social codes when using
+the internet. Another example of this is Shirin, who experienced
+exclusion from a social group of peers when using social media. Shirinand some friends at school looked at and discussed one of their
+posted videos from the weekend in a group on Snap Chat and
+through the discussion Shirin understood that she was no longer partof the group on Snap Chat.
+Shirin says: “Can I see? Can I see? ”One of her peers at
+school is holding the phone very close to herself saying toShirin: “You´ve seen it already. Don´t go on about it. Did
+you know Lili [another peer at school] was erasing you
+from the group [on Snap Chat] this weekend because shefound you so annoying on the film? ”After this, the friend
+is holding her breath, looking at me, and then back at
+Shirin. Shirin looks down and says: “Oh ok …should I erase
+her too? ”Her friend says: “No. Remember I erased you,
+but I put you back in again ”.
+This experience restricted Shirin's social participation, as she
+had been excluded from the group of friends in the social media
+app and this was still talked about the next week at school among
+peers. Further, Shirin expressed an uncertainty on how to handlethe situation. Both the above examples seemed to serve as a
+learning experience of online social codes and behaviour that can
+be learnt both with parents and peers. Further, this indicates
+that participating in social groups using the internet can be a
+quickly changing arena of partic ipation, with social codes that
+may be difficult to understand for young people with learningdisabilities.
+4.3 |Internet use and community participation
+4.3.1 |Searching, finding, and understanding
+information in society
+Searching for information was performed on the internet by most
+participants using search engines, for example, Google, Bing, andapps like YouTube. Information searched for was of varying sorts, for
+example, some looked at the news and read newspapers on the
+internet to be updated on local and global happenings. Someonesearched the internet for prices of merchandise. Different apps wereused, for example, to search for information about the weather or for
+information on upcoming TV ‐programs. Further, a few participants
+identified the need to be able to search for information on internetfor everyday life activities as society is getting increasingly digitalized,
+for example, Marcus, who wanted to apply for further studies. He had
+been searching for and finding information of the different coursesonline, and he found an application form to fill in. Even though he
+could not fill it in or print it, he said: But now I know …That is how you130 |
+ÅGREN ET AL.
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+do it, you know. Look for it on the internet …Now I can tell my dad …This
+indicates that he had knowledge, that perhaps his father lacked, tosearch for information on the internet, to be able to get information
+on how to pursue his wish to participate in the community and enrol
+in further studies.
+4.3.2 |Using internet to take part in leisure activities
+in the community
+Information to take part in activities in the local community were
+searched for online by most participants, for example, aboutmovies at the local cinema or checking opening hours of the local
+swimming pool or shopping malls. Further, some used social media
+as a medium to be able to take part in leisure activities. Onee x a m p l eo ft h i si sK y l i ew h os h o w sag r o u pf o ro n l i n ec o m m u n i c a -
+tion on KiK where every member of her football team is
+participating. In the group, they send messages to decide on carrides to trainings. Kylie says: It is good because I can´t go on the bus
+on my own …If my Dad can't take me I can look here …as my Mum
+don't drive …This indicates that using the social media app and
+being a member of the KiK group enabled her to take part in bothtrainings and matches of the footba ll team and facilitated Kylie's
+possibilities for participation in the community.
+Further, participants were searching online for information
+related to feeling more secure to take part in activities in the
+community. Molly's class was going on a field trip within a week and
+Molly was hesitant to go. During the break at school, she went to thestationary computer, started Google, and said:
+Molly: “The Factory of Fun, do you know how it is spelt? “
+Observer: “I think you have written it the right way there ”
+Molly: “Ah…OK…You know we are going there and I
+don't know …I have never been there ….“She presses
+Pictures in the search engine. ”Oh look, here is the house
+and different rooms …”. She is clicking on different
+pictures on the homepage. “Oh look here is the park. I
+think it is opened …. Yes it is! _ _ _This will be fun ….I
+think …. We´ll see …”
+This shows that she was searching for the homepage of the
+place, as a tool for knowing more about a place she was going, where
+she had never been before. She searched for, found, and seemed to
+understand the information and could use it for preparation andbeing less hesitant and decide to take part in the field trip, whichcontributed positively to Molly's possibilities for community
+participation.
+Internet activities were even performed as a substitute to attend
+physically at community activities. For example, when the local
+football team in the highest league played Simon watched the games
+live on a streaming channel. Simon explains that he does not want toattend physically, but likes to see the matches and follow the team:It is too loud for me, you know. The game. And there are
+the supporters too. Too much to worry about. My earshurt. Here [shows on the device] I can put it down [the
+volume] or up ….and I get to see the re ‐runs too ….
+This showed an example of how performing internet activities of
+streaming live ‐sent services for entertainment enabled taking part in
+a community activity that otherwise Simon would not have takenpart in.
+4.3.3 |Internet use and restrictions in community
+participation
+Many were searching for information online to enable participation
+in activities, but it was challenging for most to find what they were
+searching for and even more so, understand it. Some who found
+information on the internet were not able to pursue the activity tocompletion, for example, Marcus, who was checking out the bus
+timetables to travel to and from a friend on the local bus. He took a
+bus to his friend but did not understand the information on theinternet correctly to be able to take the bus back home and said hehad to phone his dad to get picked up. This led to experiences of
+restrictions in community particip ation. This was also the experi-
+ence of Kylie, who had ordered cinema tickets online, but whenshe got to the local cinema, she could not get the tickets out of the
+machine. She explained that she had phoned her dad who tried to
+help her but that she and her friend didn't figure it out and did notmake it to the cinema in time. These examples indicates that
+participants' learning disabilities limited the possibilities to under-
+stand community information and gave limited possibilities forexercising citizenship.
+Banking business was an activity hard to pursue for most and
+Marcus explained that he had difficulties to get an idea of the amount
+of money on his bank account:
+It now costs money to get a paper out from the bank. As I
+don't have an internet bank .I may get it soon; my dad
+will try. But he doesn't know if it will work for me …
+This indicates that performing the everyday activity of knowing
+the amount of money one had without using the internet meant an
+increase in costs compared to using the internet. However, it also
+shows that performing the banking business using the internet maynot even be possible for this young man. These communityparticipation restrictions showed obvious limitations when using
+the internet and was hindering participation in going to the cinema,
+using public transportation, and performing banking businesses.Further, these activities were described by participants has having
+become more difficult in today's digitalized society and this reveals
+examples of restrictions in exercising citizenship and managing dailylife due to internet use.ÅGREN ET AL.
+ |131
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+5|DISCUSSION
+This study set out with the aim to explore and describe environ-
+mental opportunities and challenges when performing internet
+activities and how internet use influences social and communityparticipation for young people with learning disabilities from their
+own perspectives. The findings show that all participants performed
+internet activities that influenced social participation by communi-cating and interacting online with others, although not all used socialmedia. Yet, more examples of internet use influencing social
+participation were found than examples of community participation,
+meanwhile, restrictions were found within both. This supports theneed to expand the research focus toward internet outcomes as
+determinants of digital divides as proposed by Scheerder et al. ( 2017 )
+also for people with learning disabilities. The examples of internet useinfluencing social participation, interacting with others, mostly to
+maintain and occasionally establish new relations, show that the
+internet is used in similar ways as among young people in general andthat young people with learning disabilities now belong to the digital
+generation (Borgström et al., 2019 ). Further, the finding of perform-
+ing internet activities relating to posting on social media andbelonging to social groups are in line with previous research onidentification processes supported by internet use for young people
+with learning disabilities (Molin et al., 2017 ). However, restrictions
+were found in difficulty to understand social online codes, ashas previously been reported (Caton & Chapman, 2016 ; Lussier ‐
+Desrochers et al., 2017 ).
+Fewer examples of internet use that enabled participation in
+community were found, although examples of using internet to feel
+more secure to take part in events in community or streaming the
+football matches of the favourite team were found. The latterenabled taking part in the activity without being physically presentat the arena, but rather in the safe place of home. This possibility of
+being active online at home has been suggested to contribute to
+enhanced feelings of being active in society (Spassiani et al., 2022 ).
+This shows that internet use made it possible to take part in
+community activities exercising citizenship on equal terms as others
+in line with acts and laws (SFS, 1993 : 387; UN, 2006 ). However, the
+digitalization of society in the community and at the global level
+were identified in our study as influencing the performance of
+internet activities in a restrictive way often with difficulties on howto proceed to complete an activity. In line with this the knowledge in
+our study points out that most offline possibilities related to
+community participation have been removed from society forexample the possibility to buy cinema tickets at the cinema, bust i c k e t so nt h eb u so rv i s i tt h eb a n kf o rb a n k i n gb u s i n e s s e sw i t h o u t
+an extra cost added. Replacing these services with only online
+services is an environmental challenge for people with learningdisabilities that obstruct community participation. Our study can be
+regarded as a contribution to this research area, though further
+studies are warranted in this unexplored field of how to translateinternet use into offline possibilities for people with learning
+disabilities (Glencross et al., 2021 ).An unexpected finding in our study was the preference of the
+participants to get digital support from their peers with learningdisabilities rather than from staff. Similar findings of participants
+turning to younger people when they needed technical support has
+been reported (Molin et al., 2017 ). However, it has not been found in
+studies including young people with moderate learning disabilities, to
+our knowledge. The result from our present study indicates that the
+digital competence among staff and older people, for example,parents, is viewed upon as insufficient among young people withlearning disabilities and are in line with Molin et al. ( 2017 ). Further, it
+was found in our study that support persons often managed to create
+a concrete and suitable learning situation for the young person withlearning disabilities when using the internet for social participation,
+for example explaining about social codes on the internet. This was
+occurring both together with parents and peers, with the latter beingin line with earlier studies that reported on people with learning
+disabilities turning to their peers when encountering difficulties with
+comments on social media (Kim & Qian, 2021 ; Molin et al., 2017 ).
+This type of concrete learning situation was not found when using
+the internet related to community participation. Those situations
+could rather be characterized as abstract and with a lack of socialsupport, for example, having to find out about further studies oneself.This shows that there are different conditions regarding the type of
+learning situations for social and community participation. This
+highlights that using the internet and its outcomes to participate intoday's digitalized society is more challenging among people with
+learning disabilities than performing internet activities for social
+participation, as has been previously reported by parents of youngpeople with learning disabilities (Sorbring et al., 2017 ). Our result
+implies that the proposed shift referred to of young people living
+their everyday life through the internet (Livingstone et al., 2018 )i s
+still not reached for young people with a learning disability. However,the performance of internet activities related to social participation
+may be a starting point to elaborate and make use of internet for
+community participation to a greater extent for young people withlearning disabilities. Similar findings indicate that with support to
+enhance one's digital skills to use the internet possibilities beyond
+social connectedness may be offered (Barlott et al., 2020 ).
+Further, the findings in this study on environmental opportunities
+and challenges show that these often go hand in hand and are
+intertwined for people with learning disabilities using the internet.The challenges of understanding the social online environment with
+new social codes to learn may contribute to restrictions in social
+participation. Solutions, for example, individualized support forlearning, has been recommended, but not tested (Lussier ‐
+Desrochers et al., 2017 ). People in the social environment providing
+digital support may challenge or create opportunities for using the
+internet. Their attitudes toward internet use and digital competencehave been reported as a possibility to both lower and increase the
+barriers to internet use in general for people with learning disabilities
+(Sorbring et al., 2017 ). When it comes to the physical and digital
+environment, participants often used more than one digital device
+which has been highlighted previously to promote social participation132 |
+ÅGREN ET AL.
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+through internet use among people with learning disabilities (Martin
+et al., 2021 ). However, the finding also reveals accessibility
+challenges regarding the design of devices, apps, and websites where
+actions in several steps needs to be taken, which are in line with
+earlier studies (Barlott et al., 2021; Darcy et al., 2016 ). These findings
+need to be communicated to digital product and web ‐designers,
+together with a call for using principles of universal design for all, that
+is, that products, or services in a specific environment should bedesigned to meet the needs of all people who wish to use it (Centrefor Excellence in Universal design, 2022 ). This is emphasized in the
+CRPD (UN, 2006 ) as a strategy for a society being inclusive of all.
+5.1 |Methodological considerations
+The aim was reached through the study design of observations in the
+participants everyday settings and the use of cognitively adapted
+follow ‐up interviews to ensure the perspective of the target group.
+The data collection design was vigorous but relevant to get access to
+the participants perspectives. All participants in this study were
+internet users and the findings are not transferable to the generalpopulation of people with learning disabilities. The findings indicatemore situations of internet outcomes when performing internet
+activities influencing social participation, rather than community
+participation. This could be a circumstance depending on the youngage of the participants with a mean age of 18.5 years and a range
+from 13 to 24. Activities in the community related to being an adult
+for example handling banking business, may not have beenappropriate everyday life activities for all participants. There is a
+need to further explore aspects of community participation related to
+performing internet activities in future research, and include youngadults with learning disabilities, from the age of 18 and above.
+6|CONCLUSION
+The research reveals this group of young people with learning
+disabilities as active internet users that highly valued performinginternet activities and were motivated to use the internet as has been
+found previously (Chadwick, 2022 ). They were performing internet
+activities on their own and together with others and preferred digitalsupport from peers rather than support from family or staff. More
+examples of internet use positively influencing social participation
+were found, contrary to community participation. These findingsdemonstrate the relevance of a distinction within the concept ofparticipation as described by Chang and Coster ( 2014 ), who separate
+between social and community participation. Further, the results
+indicate that concrete learning situations in combination with socialsupport when using internet for social participation were adapted to
+the participants and promoted this type of participation. Community
+participation situations can be described as the opposite andrestricted opportunities to participate in society. Due to this,
+concrete learning situations including social digital competentsupport are recommended for different types of internet use for
+influencing social and in particular community participation.
+ACKNOWLEDGEMENTS
+This research was supported by internal funding from the Faculty ofMedicine and Health Sciences, Linköping University, Sweden.
+CONFLICT OF INTEREST STATEMENT
+The authors report no conflicts of interest.
+DATA AVAILABILITY STATEMENT
+Research data are not shared.
+ORCID
+Kristin Alfredsson Ågren
+http://orcid.org/0000-0002-6413-584X
+REFERENCES
+Alfredsson Ågren, K., Kjellberg, A., & Hemmingsson, H. (2020a). Digital
+participation? Internet use among adolescents with and withoutintellectual disabilities: A comparative study. New Media and Society ,
+22(12), 2128 –2145. https://doi.org/10.1177/1461444819888398
+Alfredsson Ågren, K., Kjellberg, A., & Hemmingsson, H. (2020b). Access to
+and use of the Internet among adolescents and young adults with
+intellectual disabilities in everyday settings. Journal of intellectual &
+developmental disability ,45(1), 89 –98. https://doi.org/10.3109/
+13668250.2018.1518898
+Barlott, T., Aplin, T., Catchpole, E., Kranz, R., Le Goullon, D., Toivanen, A.,
+& Hutchens, S. (2020). Connectedness and ICT: Opening the door to
+possibilities for people with intellectual disabilities. Journal of
+Intellectual Disabilities ,24(4), 503 –521. https://doi.org/10.1177/
+1744629519831566
+Borgström, Å. (2021). Tensions between risk, coping and support: Young
+people with intellectual disability in Sweden and Internet ‐related
+support. Disability & Society .https://doi.org/10.1080/09687599.
+2021.1946675
+Borgström, Å., Daneback, K., & Molin, M. (2019). Young people with
+intellectual disabilities and social media: A literature review and
+thematic analysis. Scandinavian Journal of Disability Research ,21(1),
+129 –140. https://doi.org/10.16993/sjdr.549
+Caton, S., & Chapman, M. (2016). The use of social media and people with
+intellectual disability: A systematic review and thematic analysis.
+Journal of Intellectual and Developmental Disability ,41(2), 125 –139.
+https://doi.org/10.3109/13668250.2016.1153052
+Centre for Excellence in Universal Design. (2022). What is Universal
+design? Retrieved from https://universaldesign.ie/what-is-universal-
+design/the-10-things-to-know-about-ud/
+Chadwick, D. D. (2022). You want to know that you're safe ”: Experiences
+of risk, restriction and resilience online among people with anintellectual disability. Cyberpsychology: Journal of Psychosocial
+Research on Cyberspace ,16(3), article 8. https://doi.org/10.5817/
+CP2022-3-8
+Chang, F. H., & Coster, W. J. (2014). Conceptualizing the construct of
+participation in adults with disabilities. Archives of Physical Medicine
+and Rehabilitation ,95(9), 1791 –1798.
+Danker, J., Strnadová, I., Tso, M., Loblinzk, J., Cumming, T. M., &
+Martin, A. J. (2022). ‘It will open your world up': The role of mobile
+technology in promoting social inclusion among adults with
+intellectual disabilities. British Journal of Learning Disabilities .1–13.
+https://doi.org/10.1111/bld.12500
+Darcy, S., Maxwell, H., & Green, J. (2016). Disability citizenship and
+independence through mobile technology? A study exploringÅGREN ET AL.
+ |133
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+adoption and use of a mobile technology platform. Disability &
+Society ,31(4), 497 –519. https://doi.org/10.1080/09687599.2016.
+1179172
+Folkestad, H. (2000). Getting the picture: Photo ‐assisted conversations as
+interviews. Scandinavian Journal of Disability Research ,2(2), 3 –21.
+https://doi.org/10.1080/15017410009510757
+Glencross, S., Mason, J., Katsikitis, M., & Greenwood, K. M. (2021).
+Internet use by people with intellectual disability: Exploring digitalinequality —A systematic review. Cyberpsychology, Behavior and
+Social Networking ,24(8), 503 –520.
+Kim, K. M., & Qian, X. (2021). ‘I feel valued': The experience of social
+networking site engagement among people with intellectual anddevelopmental disabilities in South Korea. International Journal of
+Developmental disabilities ,67(6), 412 –421. https://doi.org/10.1080/
+20473869.2019.1670007
+Livingstone, S., Mascheroni, G., & Staksrud, E. (2018). European research
+on children's Internet use: Assessing the past and anticipating thefuture. New Media & Society ,20, 1103 –1122.
+Lussier ‐Desrochers, D., Normand, C. L., Romero ‐Torres, A., Lachapelle, Y.,
+Godin ‐Tremblay, V., Dupont, M. È., Roux, J., Pépin ‐Beauchesne, L., &
+Bilodeau, P. (2017). Bridging the digital divide for people withintellectual disability. Cyberpsychology: Journal of Psychosocial
+Research on Cyberspace ,11,5 3 –72. https://doi.org/10.5817/
+CP2017-1-1
+Martin, A. J., Strnadová, I., Loblinzk, J., Danker, J. C., & Cumming, T. M.
+(2021). The role of mobile technology in promoting social inclusionamong adults with intellectual disabilities. Journal of Applied Research
+in Intellectual Disabilities ,34, 840 –851. https://doi.org/10.1111/jar.
+12869
+Molin, M., Sorbring, E., & Löfgren ‐Mårtenson, L. (2017). New Em@ncipa-
+tory landscapes?: Young people with intellectual disabilities, internetuse and identification processes. Advances in Social Work ,18,
+645 –662. https://doi.org/10.18060/21428
+Patton, M. Q. (2015). Qualitative research & evaluation methods.
+Integrating theory and practice: The definitive text of qualitativeinquiry frameworks and options (4th ed.). Sage Publications.Scheerder, A., Van Deursen, A., & Van Dijk, J. (2017). Determinants of
+Internet skills, uses and outcomes. A systematic review of thesecond ‐
+and third ‐level digital divide. Telematics and informatics ,
+34(8), 1607 –1624.
+SFS. (1993). Svensk författningssamling [Swedish Code of Statutes]. Lagen
+om stöd och service till vissa funktionshindrade [The act concerningsupport and service for persons with certain functional impairments] .
+Sorbring, E., Molin, M., & Löfgren ‐Mårtenson, L. (2017). “I'm a mother, but
+I'm also a facilitator in her every ‐day life ”: Parents' voices about
+barriers and support for Internet participation among young people
+with intellectual disabilities. Cyberpsychology: Journal of Psychosocial
+Research on Cyberspace ,11(1), article 3. https://doi.org/10.5817/
+CP2017-1-3
+Spassiani, N. A., Becaj, M., Miller, C., Hiddleston, A., Hume, A., & Tait, S.
+(2022). ‘Now that I am connected this isn't social isolation, this is
+engaging with people ’: Staying connected during the COVID ‐19
+pandemic. British Journal of Learning Disabilities .1–12.https://doi.
+org/10.1111/bld.12478
+Statista. (2022). Internet usage worldwide. https://www.statista.com/
+topics/1145/internet-usage-worldwide/
+Taylor, S. J., Bogdan, R., & DeVault, M. L. (2016). Introduction to qualitative
+research methods. [Elektronisk resurs]: A guidebook and resource (4th
+ed., p. 2016). Wiley.
+UN. (2006). Convention on the rights of persons with disabilities .https://
+www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-wi th-disabilities.html
+How to cite this article: Ågren, K. A., Hemmingsson, H., &
+Kjellberg, A. (2023). Internet activities and social and
+community participation among young people with learningdisabilities. British Journal of Learning Disabilities , 51, 125 –134.
+https://doi.org/10.1111/bld.12519134 |
+ÅGREN ET AL.
+ 14683156, 2023, 2, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/bld.12519 by CochraneItalia, Wiley Online Library on [21/07/2023]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
