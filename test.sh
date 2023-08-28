@@ -1,12 +1,14 @@
-CUDA_VISIBLE_DEVICES=1 python3 run_qa_tam.py \
+#!/bin/bash
+
+CUDA_VISIBLE_DEVICES=1 python3 run_generation.py \
     --logging disabled \
     --perform_retrieval \
     --do_train \
     --do_eval \
     --do_predict \
     --output_dir output_test \
-    --dataset_name paoloitaliani/ace_attorney \
-    --task_name dialogue_generation \
+    --dataset_name paniniDot/sci_lay \
+    --task_name text_summarization \
     --model_name_or_path facebook/bart-large \
     --log_level error \
     --gradient_accumulation_steps 1 \
