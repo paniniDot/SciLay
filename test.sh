@@ -8,7 +8,7 @@ CUDA_VISIBLE_DEVICES=1 python3 run_generation.py \
     --do_predict \
     --output_dir output_test \
     --dataset_name paniniDot/sci_lay \
-    --task_name text_summarization \
+    --task_name lay_summarization \
     --model_name_or_path facebook/bart-large \
     --log_level error \
     --gradient_accumulation_steps 1 \
