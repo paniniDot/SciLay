@@ -423,7 +423,7 @@ def main():
     # download model & vocab.
 
     tokenizer = AutoTokenizer.from_pretrained(model_args.model_name_or_path)
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_args.model_name_or_path, load_in_8bit=model_args.use_peft)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_args.model_name_or_path, load_in_8bit=model_args.use_peft, cache_dir="../llms")
         
     if model_args.use_peft:
         # Define LoRA Config
