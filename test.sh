@@ -2,7 +2,6 @@
 
 CUDA_VISIBLE_DEVICES=1 python3 run_generation.py \
     --logging disabled \
-    --perform_retrieval \
     --do_train \
     --do_eval \
     --do_predict \
