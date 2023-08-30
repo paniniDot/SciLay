@@ -13,12 +13,16 @@ import datasets
 import evaluate
 import nltk
 import numpy as np
-from utils import predict
+from statistics import mean
+from utils import predict, compute_sim
 from datasets import load_dataset, load_from_disk
 from filelock import FileLock
 from torch.utils.data import DataLoader
 from codecarbon import EmissionsTracker
+from BARTScore.bart_score import BARTScorer
 
+
+from sentence_transformers import SentenceTransformer
 import transformers
 from transformers import (
     AutoModelForSeq2SeqLM,
@@ -31,6 +35,7 @@ from transformers import (
     get_scheduler,
 )
 
+from nltk.translate.bleu_score import corpus_bleu
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
@@ -51,7 +56,7 @@ except (LookupError, OSError):
 
 
 task_name_mapping = {
-    "dialogue_generation": ("evidence", "dialogue"),
+    "lay_summarization": ("technical_text", "plain_text"),
 }
 
 global_rouge_scorer = rouge.Rouge(metrics=['rouge-n', 'rouge-l', 'rouge-w'],
@@ -638,13 +643,16 @@ def main():
 
     # Metric
     metric_bertscore = evaluate.load("bertscore")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    bart_scorer = BARTScorer(device=device, checkpoint='facebook/bart-large-cnn')
+    sim_model = SentenceTransformer('sentence-transformers/roberta-large-nli-stsb-mean-tokens').to(device)
 
-    # metric_summac = SummaCZS(granularity="sentence", model_name="vitc", device="cuda")
 
     def compute_metrics(eval_preds):
-        preds, labels, input_ids = eval_preds
+        preds, labels, _ = eval_preds
         if isinstance(preds, tuple):
             preds = preds[0]
+       
         # Replace -100s used for padding as we can't decode them
         preds = np.where(preds != -100, preds, tokenizer.pad_token_id)
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
@@ -652,30 +660,45 @@ def main():
         decoded_preds = [pred.strip() for pred in tokenizer.batch_decode(preds, skip_special_tokens=True)]
         decoded_labels = [label.strip() for label in tokenizer.batch_decode(labels, skip_special_tokens=True)]
 
-        # rougeLSum expects newline after each sentence
-        decoded_preds = ["\n".join(nltk.sent_tokenize(pred)) for pred in decoded_preds]
-        decoded_labels = ["\n".join(nltk.sent_tokenize(label)) for label in decoded_labels]
-
         rouge_scores = global_rouge_scorer.get_scores(hypothesis=decoded_preds, references=decoded_labels)
         result = {"rouge1": round(100 * rouge_scores["rouge-1"]["f"], 2),
                   "rouge2": round(100 * rouge_scores["rouge-2"]["f"], 2),
                   "rougeL": round(100 * rouge_scores["rouge-l"]["f"], 2),
                 }
+        
+        # Compute BLEU scores
+        tokenized_predictions = [prediction.split(" ") for prediction in decoded_preds]
+        tokenized_labels = [[label.split(" ")] for label in decoded_labels]
+        result["bleu1"] = round(100 * corpus_bleu(tokenized_labels, tokenized_predictions, weights=(1, 0, 0, 0)), 2)
+        result["bleu2"] = round(100 * corpus_bleu(tokenized_labels, tokenized_predictions, weights=(1/2, 1/2, 0, 0)), 2)
+        result["bleu3"] = round(100 * corpus_bleu(tokenized_labels, tokenized_predictions, weights=(1/3, 1/3, 1/3, 0)), 2)
+        result["bleu4"] = round(100 * corpus_bleu(tokenized_labels, tokenized_predictions, weights=(1/4, 1/4, 1/4, 1/4)), 2)
+        
 
         result["R"] = round(np.mean([result["rouge1"], result["rouge2"], result["rougeL"]]) / \
             (1 + (np.var([result["rouge1"]/100, result["rouge2"]/100, result["rougeL"]/100]))), 2)
-        
-        decoded_preds = [pred.replace("\n", " ") for pred in decoded_preds]
-        decoded_labels = [label.replace("\n", " ") for label in decoded_labels]
 
         result_bs = metric_bertscore.compute(predictions=decoded_preds, references=decoded_labels, lang="en",
                                              idf=True, rescale_with_baseline=True,
                                              model_type=model_args.model_for_bertscore)
         result["bertscore"] = round(sum(result_bs["f1"]) / len(result_bs["f1"]) * 100, 2)
+
+        bartr_scores = bart_scorer.score(decoded_preds, decoded_labels)
+        bartp_scores = bart_scorer.score(decoded_labels, decoded_preds)
+
+        bart_score_R = mean(bartr_scores)
+        bart_score_P = mean(bartp_scores)
+        bart_score_F = mean([mean([pscore, rscore]) for pscore, rscore in zip(bartp_scores, bartr_scores)])
+        result["bart_score_R"] = round(bart_score_R, 3)
+        result["bart_score_P"] = round(bart_score_P, 3)
+        result["bart_score_F"] = round(bart_score_F, 3)
+        
+        result["mean_cos_sim"] = compute_sim(sim_model, decoded_labels, decoded_preds)
+
         result["gen_len"] = np.mean([np.count_nonzero(pred != tokenizer.pad_token_id) for pred in preds])
 
         return result
-
+    
     # Override the decoding parameters of Seq2SeqTrainer
     training_args.generation_max_length = (
         training_args.generation_max_length

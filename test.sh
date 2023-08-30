@@ -1,7 +1,7 @@
 #! /bin/bash
 
 CUDA_VISIBLE_DEVICES=0 python3 run_generation.py \
-	--logging disabled \
+	--logging online \
 	--do_train \
 	--do_eval \
 	--do_predict \
