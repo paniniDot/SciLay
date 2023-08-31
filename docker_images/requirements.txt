@@ -31,3 +31,4 @@ tabulate==0.8.9
 torch==2.0.1
 tqdm==4.62.3
 transformers==4.31.0
+wandb==0.15.9
