@@ -56,7 +56,7 @@ except (LookupError, OSError):
 
 
 task_name_mapping = {
-    "lay_summarization": ("technical_text", "plain_text"),
+    "full_to_technical_summarization": ("full_text", "technical_text"),
 }
 
 global_rouge_scorer = rouge.Rouge(metrics=['rouge-n', 'rouge-l', 'rouge-w'],
@@ -81,9 +81,11 @@ class DataTrainingArguments:
         default=None,
         metadata={"help": "The name of the task to perform: " + ", ".join(task_name_mapping.keys())},
     )
- 
     dataset_name: Optional[str] = field(
         default=None, metadata={"help": "The name of the dataset to use (via the datasets library)."}
+    )
+    subset_name: Optional[str] = field(
+        default=None, metadata={"help": "The name of the dataset subset to use."}
     )
     dataset_name_local: Optional[str] = field(
         default=None, metadata={"help": "The name of the local dataset to use."}
@@ -328,12 +330,12 @@ def main():
 
     training_args.do_test = training_args.do_predict
     training_args.output_dir += "/" + data_args.task_name + "_" + \
-                               model_args.model_name_or_path.partition("/")[-1] + "_" + str(data_args.max_train_samples)
+                               model_args.model_name_or_path.partition("/")[-1] + "_" + data_args.subset_name + "_" + str(data_args.max_train_samples)
     # assert not os.path.exists(training_args.output_dir), "Output directory already exists"
 
     wandb.init(mode=data_args.logging,
                name=training_args.output_dir.split("/")[1],
-               project="ace-attorney",
+               project="sci_lay",
     )
 
     # Setup logging
@@ -399,6 +401,7 @@ def main():
         # Downloading and loading a dataset from the hub.
         raw_datasets = load_dataset(
             data_args.dataset_name,
+            data_args.subset_name,
             data_args.dataset_config_name,
             cache_dir=model_args.cache_dir,
             use_auth_token=True if model_args.use_auth_token else None,
