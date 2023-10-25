@@ -21,21 +21,27 @@ from utils import compute_sim
 def generate_summary(document, guidelines, tokenizer, ll_model, max_source_length, device):
     instruction = f"Summarize the following document according to these guidelines: {guidelines}. Document: {document}"
     inputs = tokenizer(instruction, return_tensors="pt", max_length=max_source_length, truncation=True).to(device)
-    summary_ids = ll_model.generate(**inputs, max_length=512)
-    dec_out = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
-    return dec_out[0]
+
+    new_token = torch.tensor([[tokenizer.additional_special_tokens_ids[0]]]).to(device)
+  
+    input_ids_tensor = torch.cat((inputs['input_ids'], new_token), dim=1)
+
+    # Passa un dizionario con la chiave 'input_ids' al metodo generate
+    summary_ids = ll_model.generate(input_ids=input_ids_tensor, max_length=512)
+    dec_out = tokenizer.batch_decode(summary_ids, skip_special_tokens=False)
+    return dec_out[0].split('[END]')[1]
 
 def compute_metrics(predictions, references, device):
     global_rouge_scorer = rouge.Rouge(metrics=['rouge-n', 'rouge-l', 'rouge-w'],
-                            max_n=4,
-                            limit_length=True,
-                            length_limit=100,
-                            length_limit_type='words',
-                            apply_avg=True,
-                            apply_best=False,
-                            alpha=0.5,  # Default F1_score
-                            weight_factor=1.2,
-                            stemming=True)   
+                                      max_n=4,
+                                      limit_length=True,
+                                      length_limit=100,
+                                      length_limit_type='words',
+                                      apply_avg=True,
+                                      apply_best=False,
+                                      alpha=0.5,  # Default F1_score
+                                      weight_factor=1.2,
+                                      stemming=True)   
     metric_bertscore = evaluate.load("bertscore")
     bart_scorer = BARTScorer(device=device, checkpoint='facebook/bart-large-cnn')
     sim_model = SentenceTransformer('sentence-transformers/roberta-large-nli-stsb-mean-tokens').to(device)
@@ -55,6 +61,9 @@ def compute_metrics(predictions, references, device):
     result["bleu2"] = round(100 * corpus_bleu(tokenized_references, tokenized_predictions, weights=(0.5, 0.5, 0, 0)), 2)
     result["bleu3"] = round(100 * corpus_bleu(tokenized_references, tokenized_predictions, weights=(1/3, 1/3, 1/3, 0)), 2)
     result["bleu4"] = round(100 * corpus_bleu(tokenized_references, tokenized_predictions, weights=(0.25, 0.25, 0.25, 0.25)), 2)
+
+    result["R"] = round(np.mean([result["rouge1"], result["rouge2"], result["rougeL"]]) / \
+        (1 + (np.var([result["rouge1"]/100, result["rouge2"]/100, result["rougeL"]/100]))), 2)
 
     # BERTScore
     result_bs = metric_bertscore.compute(predictions=predictions, references=references, lang="en", idf=True, rescale_with_baseline=True)
@@ -94,11 +103,11 @@ def get_carburacy(score, emission_train, emission_test, alpha=10, beta_train=1, 
 
 def main():
 
-    output_prediction_path = os.path.join(args.output_dir, f"{args.model.split('/')[1]}_{args.dataset_name}_{args.max_source_length}_summarization")
+    output_prediction_path = os.path.join(args.output_dir, f"{args.model.split('/')[1]}_{args.dataset_subset}_{args.max_source_length}_summarization")
     if not os.path.exists(output_prediction_path):
       os.makedirs(output_prediction_path)
 
-    raw_datasets = load_dataset(args.dataset_name)
+    raw_datasets = load_dataset(args.dataset_name, args.dataset_subset)
     train_dataset = raw_datasets[args.split]
     references = train_dataset["plain_text"]  
 
@@ -108,6 +117,9 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(args.model)
     ll_model = AutoModelForCausalLM.from_pretrained(args.model, cache_dir="../llms", load_in_4bit=True, trust_remote_code=True, device_map="auto")
 
+    num_added_toks = tokenizer.add_special_tokens({'additional_special_tokens': [" [END]"]})
+    ll_model.resize_token_embeddings(len(tokenizer))
+
     tracker = EmissionsTracker(output_dir=output_prediction_path)
     tracker.start()
 
@@ -116,7 +128,7 @@ def main():
     predictions = []
     with torch.no_grad():
         for document in tqdm(train_dataset["full_text"]):
-            summary = generate_summary(document, args.guidelines, tokenizer, ll_model, args.max_source_length)
+            summary = generate_summary(document, args.guidelines, tokenizer, ll_model, args.max_source_length, device)
             predictions.append(summary)
     
     end_time = time.time()
@@ -143,6 +155,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, type=str)
     parser.add_argument("--dataset_name", default=None, type=str)
+    parser.add_argument("--dataset_subset", default=None, type=str)
     parser.add_argument("--split", default="test", type=str)
     parser.add_argument("--max_source_length", default=None, type=int)
     parser.add_argument("--output_dir", default="output", type=str)
