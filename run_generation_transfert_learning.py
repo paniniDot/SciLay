@@ -188,21 +188,86 @@ def get_dataset_columns(raw_datasets, training_args):
     if training_args.do_train:
         if "train" not in raw_datasets:
             raise ValueError("--do_train requires a train dataset")
-        return "train", raw_datasets["train"].column_names
+        return raw_datasets["train"].column_names
 
     if training_args.do_eval:
         if "validation" not in raw_datasets:
             raise ValueError("--do_eval requires a validation dataset")
-        return "validation", raw_datasets["validation"].column_names
+        return raw_datasets["validation"].column_names
 
     if training_args.do_test:
         if "test" not in raw_datasets:
             raise ValueError("--do_test requires a test dataset")
-        return "test", raw_datasets["test"].column_names
+        return raw_datasets["test"].column_names
 
     raise AttributeError("There is nothing to do. Please pass `do_train`, `do_eval` and/or `do_test`.")
 
+def get_text_and_summary_columns(data_args, column_names, task_name_mapping):
+    dataset_columns = task_name_mapping.get(data_args.task_name, None)
 
+    text_column = dataset_columns[0]
+    if text_column is None or text_column not in column_names:
+        raise ValueError(f"Text column '{text_column}' not given or needs to be one of: {', '.join(column_names)}")
+
+    summary_column = data_args.dataset_columns[1]
+    if summary_column is None:
+        raise ValueError(f"Summary column '{summary_column}' not given or needs to be one of: {', '.join(column_names)}")
+
+    return text_column, summary_column
+
+def check_label_smoothing_capability(model, training_args, logger):
+   if training_args.label_smoothing_factor > 0:
+        if not hasattr(model, "prepare_decoder_input_ids_from_labels"):
+            model_name = model.__class__.__name__
+            logger.warning(
+                f"Label smoothing is enabled, but {model_name} does not have the "
+                f"'prepare_decoder_input_ids_from_labels' method. This might lead to "
+                "inefficiencies in loss calculation and increased memory usage."
+            )
+
+
+def preprocess_function(examples, text_column, summary_column, tokenizer, max_source_length, max_target_length):
+    inputs, targets = zip(*((i, t) for i, t in zip(examples[text_column], examples[summary_column]) if i and t))
+
+    model_inputs = tokenizer(list(inputs), max_length=max_source_length, truncation=True)
+    labels = tokenizer(list(targets), max_length=max_target_length, truncation=True)
+
+    model_inputs["labels"] = labels["input_ids"]
+    return model_inputs
+
+def preprocess_dataset(dataset, preprocess_fn, column_names, overwrite_cache, desc, training_args):
+    with training_args.main_process_first(desc=f"{desc} map pre-processing"):
+        return dataset.map(
+            preprocess_fn,
+            batched=True,
+            remove_columns=column_names,
+            load_from_cache_file=not overwrite_cache,
+            desc=f"Running tokenizer on {desc} dataset",
+        )
+
+def setup_optimizer(model, weight_decay, learning_rate):
+    no_decay = ["bias", "LayerNorm.weight", "layer_norm.weight"]
+    optimizer_grouped_parameters = [
+        {
+            "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+            "weight_decay": weight_decay,
+        },
+        {
+            "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
+            "weight_decay": 0.0,
+        },
+    ]
+    optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
+    return optimizer
+
+def setup_scheduler(optimizer, num_update_steps_per_epoch, num_train_epochs):
+    max_train_steps = num_train_epochs * num_update_steps_per_epoch
+    return get_scheduler(
+        name="linear",
+        optimizer=optimizer,
+        num_warmup_steps=0,
+        num_training_steps=max_train_steps
+    )
 
 
 def main():
@@ -263,169 +328,63 @@ def main():
 
     check_and_resize_embeddings(model, tokenizer, data_args, model_args)
 
-    # Preprocessing the datasets.
-    # We need to tokenize inputs and targets.
-    if training_args.do_train:
-        if "train" not in raw_datasets:
-            raise ValueError("--do_train requires a train dataset")
-        column_names = raw_datasets["train"].column_names
-    elif training_args.do_eval:
-        if "validation" not in raw_datasets:
-            raise ValueError("--do_eval requires a validation dataset")
-        column_names = raw_datasets["validation"].column_names
-    elif training_args.do_test:
-        if "test" not in raw_datasets:
-            raise ValueError("--do_test requires a test dataset")
-        column_names = raw_datasets["test"].column_names
-    else:
-        logger.info("There is nothing to do. Please pass `do_train`, `do_eval` and/or `do_test`.")
-        return
+    column_names = get_dataset_columns(raw_datasets, training_args)
 
-    
-    # Get the column names for input/target.
-    dataset_columns = task_name_mapping.get(data_args.task_name, None)
-    if data_args.text_column is None:
-        text_column = dataset_columns[0] if dataset_columns is not None else column_names[0]
-    else:
-        text_column = data_args.text_column
-        if text_column not in column_names:
-            raise ValueError(
-                f"--text_column' value '{data_args.text_column}' needs to be one of: {', '.join(column_names)}"
-            )
-    if data_args.summary_column is None:
-        summary_column = dataset_columns[1] if dataset_columns is not None else column_names[1]
-    else:
-        summary_column = data_args.summary_column
-        if summary_column not in column_names:
-            raise ValueError(
-                f"--summary_column' value '{data_args.summary_column}' needs to be one of: {', '.join(column_names)}"
-            )
+    text_column, summary_column = get_text_and_summary_columns(data_args, column_names, task_name_mapping)
 
-    # Temporarily set max_target_length for training.
-    max_target_length = data_args.max_target_length
-    padding = "max_length" if data_args.pad_to_max_length else False
+    check_label_smoothing_capability(model, training_args, logger)
 
-    if training_args.label_smoothing_factor > 0 and not hasattr(model, "prepare_decoder_input_ids_from_labels"):
-        logger.warning(
-            "label_smoothing is enabled but the `prepare_decoder_input_ids_from_labels` method is not defined for"
-            f"`{model.__class__.__name__}`. This will lead to loss being calculated twice and will take up more memory"
-        )
-
-    def preprocess_function(examples):
-        # remove pairs where at least one record is None
-
-        inputs, targets = [], []
-        for i in range(len(examples[text_column])):
-            if examples[text_column][i] and examples[summary_column][i]:
-                inputs.append(examples[text_column][i])
-                targets.append(examples[summary_column][i])
-
-        inputs = [prefix + inp for inp in inputs]
-        model_inputs = tokenizer(inputs, max_length=data_args.max_source_length, padding=padding, truncation=True)
-
-        # Tokenize targets with the `text_target` keyword argument
-        labels = tokenizer(text_target=targets, max_length=data_args.max_target_length, padding=padding, truncation=True)
-
-        # If we are padding here, replace all tokenizer.pad_token_id in the labels by -100 when we want to ignore
-        # padding in the loss.
-        if padding == "max_length" and data_args.ignore_pad_token_for_loss:
-            labels["input_ids"] = [
-                [(l if l != tokenizer.pad_token_id else -100) for l in label] for label in labels["input_ids"]
-            ]
-
-        model_inputs["labels"] = labels["input_ids"]
-        return model_inputs
-
-    # Data collator
-    label_pad_token_id = -100 if data_args.ignore_pad_token_for_loss else tokenizer.pad_token_id
     data_collator = DataCollatorForSeq2Seq(
         tokenizer,
         model=model,
-        label_pad_token_id=label_pad_token_id,
+        label_pad_token_id=tokenizer.pad_token_id,
         pad_to_multiple_of=8 if training_args.fp16 else None,
     )
 
     if training_args.do_train:
-        train_dataset = raw_datasets["train"]
-
-        if data_args.max_train_samples is not None:
-            max_train_samples = min(len(train_dataset), data_args.max_train_samples)
-            train_dataset = train_dataset.select(range(max_train_samples))
-        with training_args.main_process_first(desc="train dataset map pre-processing"):
-            train_dataset = train_dataset.map(
-                preprocess_function,
-                batched=True,
-                num_proc=data_args.preprocessing_num_workers,
-                remove_columns=column_names,
-                load_from_cache_file=not data_args.overwrite_cache,
-                desc="Running tokenizer on train dataset",
-            )
-        
-        # Optimizer
-        # Split weights in two groups, one with weight decay and the other not.
-        no_decay = ["bias", "LayerNorm.weight", "layer_norm.weight"]
-        optimizer_grouped_parameters = [
-            {
-                "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
-                "weight_decay": training_args.weight_decay,
-            },
-            {
-                "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
-                "weight_decay": 0.0,
-            },
-        ]
+        train_dataset = preprocess_dataset(
+            raw_datasets["train"],
+            preprocess_function,
+            column_names,
+            data_args.overwrite_cache,
+            "train",
+            training_args
+        )
 
         train_dataloader = DataLoader(
             train_dataset, shuffle=True, collate_fn=data_collator,
             batch_size=training_args.per_device_train_batch_size
         )
-        optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=training_args.learning_rate)
-        num_update_steps_per_epoch = len(train_dataloader)
-        max_train_steps = training_args.num_train_epochs * num_update_steps_per_epoch
-
-        lr_scheduler = get_scheduler(
-            name="linear",
-            optimizer=optimizer,
-            num_warmup_steps=0,
-            num_training_steps=max_train_steps
-        )
+        
+        optimizer = setup_optimizer(model, training_args.weight_decay, training_args.learning_rate)
+        lr_scheduler = setup_scheduler(optimizer, len(train_dataloader), training_args.num_train_epochs)
         optimizers = (optimizer, lr_scheduler)
     else:
         optimizers = (None, None)
 
     if training_args.do_eval:
-        max_target_length = data_args.val_max_target_length
-        eval_dataset = raw_datasets["validation"]
-        
-        if data_args.max_eval_samples is not None:
-            max_eval_samples = min(len(eval_dataset), data_args.max_eval_samples)
-            eval_dataset = eval_dataset.select(range(max_eval_samples))
-        with training_args.main_process_first(desc="validation dataset map pre-processing"):
-            eval_dataset = eval_dataset.map(
-                preprocess_function,
-                batched=True,
-                num_proc=data_args.preprocessing_num_workers,
-                remove_columns=column_names,
-                load_from_cache_file=not data_args.overwrite_cache,
-                desc="Running tokenizer on validation dataset",
-            )
+        eval_dataset = preprocess_dataset(
+            raw_datasets["validation"],
+            preprocess_function,
+            column_names,
+            data_args.overwrite_cache,
+            "validation",
+            training_args
+        )
 
     if training_args.do_test:
-        max_target_length = data_args.val_max_target_length
-        test_dataset = raw_datasets["test"]
-            
-        if data_args.max_test_samples is not None:
-            max_test_samples = min(len(test_dataset), data_args.max_test_samples)
-            test_dataset = test_dataset.select(range(max_test_samples))
-        with training_args.main_process_first(desc="test dataset map pre-processing"):
-            test_dataset = test_dataset.map(
-                preprocess_function,
-                batched=True,
-                num_proc=data_args.preprocessing_num_workers,
-                remove_columns=column_names,
-                load_from_cache_file=not data_args.overwrite_cache,
-                desc="Running tokenizer on test dataset",
-            )
+        test_dataset = preprocess_dataset(
+            raw_datasets["test"],
+            preprocess_function,
+            column_names,
+            data_args.overwrite_cache,
+            "test",
+            training_args
+        )
+
+
+
+
 
     # Metric
     metric_bertscore = evaluate.load("bertscore")
