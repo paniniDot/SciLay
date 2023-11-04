@@ -1,6 +1,7 @@
 accelerate==0.21.0
 beautifulsoup4==4.12.2
 bert_score==0.3.13
+bitsandbytes==0.41.1
 codecarbon==1.2.0
 comet==3.1.0
 ConfigParser==6.0.0
