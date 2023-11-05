@@ -7,8 +7,8 @@ CUDA_VISIBLE_DEVICES=0 python3 run_generation_transfert_learning.py \
     --do_predict \
     --output_dir output_test_tl \
     --dataset_name paniniDot/sci_lay \
-    --subset_name all \
-    --task_name full_to_technical_summarization \
+    --subset_name MBIO \
+    --task_name full_to_lay_transfert_summarization \
     --model_name_or_path ccdv/lsg-bart-large-4096 \
     --log_level error \
     --gradient_accumulation_steps 1 \
@@ -22,6 +22,7 @@ CUDA_VISIBLE_DEVICES=0 python3 run_generation_transfert_learning.py \
     --gradient_checkpointing \
     --load_best_model_at_end \
     --predict_with_generate \
+    --overwrite_cache \
     --metric_for_best_model eval_rouge1 \
     --save_total_limit 1 \
     --num_beams 5 \
@@ -35,9 +36,4 @@ CUDA_VISIBLE_DEVICES=0 python3 run_generation_transfert_learning.py \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
     --fp16
-#--max_eval_samples 10 \
-#--max_train_samples 100 \
-#--max_test_samples 10 &
-#--eval_steps 14000 \
-#--save_steps 14000 \
 

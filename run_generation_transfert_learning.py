@@ -56,7 +56,7 @@ except (LookupError, OSError):
 
 
 task_name_mapping = {
-    "full_to_lay_transfert_summarization": ("full_text", "lay_text"),
+    "full_to_lay_transfert_summarization": ("full_text", "plain_text"),
 }
 
 
@@ -80,7 +80,7 @@ class DataTrainingArguments:
         default=1024, metadata={"help": ("The maximum total input sequence length after tokenization. Sequences longer than this will be truncated, sequences shorter will be padded.")},
     )
     max_target_length: Optional[int] = field(
-        default=128, metadata={"help": ("The maximum total sequence length for target text after tokenization. Sequences longer than this will be truncated, sequences shorter will be padded.")},
+        default=512, metadata={"help": ("The maximum total sequence length for target text after tokenization. Sequences longer than this will be truncated, sequences shorter will be padded.")},
     )
     num_beams: Optional[int] = field(
         default=None,metadata={"help": ("Number of beams to use for evaluation. This argument will be passed to ``model.generate``, which is used during ``evaluate`` and ``test``.")},
@@ -88,7 +88,9 @@ class DataTrainingArguments:
     logging : Optional[str] = field(
         default="disabled",metadata={"help": ("Set 'disabled' to disable wandb logging, or else select logging 'online' or 'offline'")},
     )
-
+    overwrite_cache: bool = field(
+        default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
+    )
 
 @dataclass
 class ModelArguments:
@@ -131,7 +133,6 @@ def get_carburacy(score, emission_train, emission_test, alpha=10, beta_train=1, 
         carburacy = (2 * carburacy_train * carburacy_test) / (carburacy_train + carburacy_test)
     return carburacy_train, carburacy_test, carburacy
 
-
 def check_for_last_checkpoint(training_args, logger):
     if os.path.isdir(training_args.output_dir):
         if training_args.do_train and not training_args.overwrite_output_dir:
@@ -172,7 +173,6 @@ def check_and_resize_embeddings(model, tokenizer, data_args, model_args):
             )
             raise ValueError(error_message)
 
-
 def get_dataset_columns(raw_datasets, training_args):
     if training_args.do_train:
         if "train" not in raw_datasets:
@@ -198,7 +198,7 @@ def get_text_and_summary_columns(data_args, column_names, task_name_mapping):
     if text_column is None or text_column not in column_names:
         raise ValueError(f"Text column '{text_column}' not given or needs to be one of: {', '.join(column_names)}")
 
-    summary_column = data_args.dataset_columns[1]
+    summary_column = dataset_columns[1]
     if summary_column is None:
         raise ValueError(f"Summary column '{summary_column}' not given or needs to be one of: {', '.join(column_names)}")
 
@@ -214,7 +214,6 @@ def check_label_smoothing_capability(model, training_args, logger):
                 "inefficiencies in loss calculation and increased memory usage."
             )
 
-
 def preprocess_function(examples, text_column, summary_column, tokenizer, max_source_length, max_target_length):
     inputs, targets = zip(*((i, t) for i, t in zip(examples[text_column], examples[summary_column]) if i and t))
 
@@ -224,15 +223,23 @@ def preprocess_function(examples, text_column, summary_column, tokenizer, max_so
     model_inputs["labels"] = labels["input_ids"]
     return model_inputs
 
-def preprocess_dataset(dataset, preprocess_fn, column_names, overwrite_cache, desc, training_args):
+def preprocess_dataset(dataset, preprocess_fn, column_names, overwrite_cache, desc, training_args, text_column, summary_column, tokenizer, max_source_length, max_target_length):
     with training_args.main_process_first(desc=f"{desc} map pre-processing"):
         return dataset.map(
-            preprocess_fn,
+            lambda examples: preprocess_fn(
+                examples,
+                text_column=text_column,
+                summary_column=summary_column,
+                tokenizer=tokenizer,
+                max_source_length=max_source_length,
+                max_target_length=max_target_length,
+            ),
             batched=True,
             remove_columns=column_names,
             load_from_cache_file=not overwrite_cache,
             desc=f"Running tokenizer on {desc} dataset",
         )
+
 
 def setup_optimizer(model, weight_decay, learning_rate):
     no_decay = ["bias", "LayerNorm.weight", "layer_norm.weight"]
@@ -258,7 +265,7 @@ def setup_scheduler(optimizer, num_update_steps_per_epoch, num_train_epochs):
         num_training_steps=max_train_steps
     )
 
-def compute_metrics(eval_preds, tokenizer, model_args):
+def compute_metrics(eval_preds, tokenizer):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         
         global_rouge_scorer = rouge.Rouge(metrics=['rouge-n', 'rouge-l', 'rouge-w'],
@@ -307,7 +314,7 @@ def compute_metrics(eval_preds, tokenizer, model_args):
                                              lang="en",
                                              idf=True, 
                                              rescale_with_baseline=True,
-                                             model_type=model_args.model_for_bertscore)
+                                             model_type="bert-base-uncased")
         result["bertscore"] = round(sum(result_bs["f1"]) / len(result_bs["f1"]) * 100, 2)
 
         bartr_scores = bart_scorer.score(decoded_preds, decoded_labels)
@@ -404,7 +411,12 @@ def main():
             column_names,
             data_args.overwrite_cache,
             "train",
-            training_args
+            training_args,
+            text_column,
+            summary_column,
+            tokenizer,
+            data_args.max_source_length,
+            data_args.max_target_length
         )
 
         train_dataloader = DataLoader(
@@ -425,7 +437,12 @@ def main():
             column_names,
             data_args.overwrite_cache,
             "validation",
-            training_args
+            training_args,
+            text_column,
+            summary_column,
+            tokenizer,
+            data_args.max_source_length,
+            data_args.max_target_length
         )
 
     if training_args.do_test:
@@ -435,9 +452,19 @@ def main():
             column_names,
             data_args.overwrite_cache,
             "test",
-            training_args
+            training_args,
+            text_column,
+            summary_column,
+            tokenizer,
+            data_args.max_source_length,
+            data_args.max_target_length
         )
     
+    training_args.generation_max_length = (
+        training_args.generation_max_length
+        if training_args.generation_max_length is not None
+        else data_args.val_max_target_length
+    )
     training_args.generation_num_beams = (
         data_args.num_beams if data_args.num_beams is not None else training_args.generation_num_beams
     )
@@ -449,7 +476,7 @@ def main():
         eval_dataset=eval_dataset if training_args.do_eval else None,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        compute_metrics=compute_metrics if training_args.predict_with_generate else None,
+        compute_metrics=lambda eval_preds: compute_metrics(eval_preds, tokenizer=tokenizer) if training_args.predict_with_generate else None,
         optimizers=optimizers,
     )
 
@@ -464,7 +491,7 @@ def main():
         train_tracker.start()
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
         train_emissions = train_tracker.stop()
-        trainer.save_model()  # Saves the tokenizer too for easy upload
+        trainer.save_model()  
 
         metrics = train_result.metrics
         metrics["train_samples"] = len(train_dataset)
