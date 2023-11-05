@@ -165,3 +165,10 @@ myenv/
 *.swp
 
 myenv/
+
+output_test/
+output_test_llm/
+output_test_tl/
+wandb/
+.vscode/
+BARTScore/
