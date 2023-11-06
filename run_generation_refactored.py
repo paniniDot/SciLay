@@ -1,4 +1,3 @@
-
 import logging
 import os
 import rouge
@@ -15,11 +14,12 @@ import nltk
 import numpy as np
 from statistics import mean
 from utils import predict, compute_sim
-from datasets import load_dataset, concatenate_datasets
+from datasets import load_dataset
 from filelock import FileLock
 from torch.utils.data import DataLoader
 from codecarbon import EmissionsTracker
 from BARTScore.bart_score import BARTScorer
+
 
 from sentence_transformers import SentenceTransformer
 import transformers
@@ -38,15 +38,6 @@ from nltk.translate.bleu_score import corpus_bleu
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
-
-
-splits = ["MBIO", "A", "B", "C", "CB", "I", "NC", "OTHER", "PLB", "PLCB", "PLGEN", "PLNTD", "PLPAT", "SD"]
-
-ds_splits = {}
-
-for split in splits:
-  ds = load_dataset("paniniDot/sci_lay", split)
-  ds_splits[split] = concatenate_datasets([ds["train"], ds["validation"], ds["test"]]) 
 
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
